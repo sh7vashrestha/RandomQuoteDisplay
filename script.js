@@ -38,7 +38,7 @@ const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const randomBtn = document.getElementById("randomBtn");
 const categoryDropdown = document.getElementById("category");
-const darkModeSwitch = document.getElementById("darkMode");
+const darkModeSwitch = document.getElementById("theme-toggle");
 const decreaseFontBtn = document.getElementById("decreaseFont");
 const increaseFontBtn = document.getElementById("increaseFont");
 
@@ -76,6 +76,14 @@ function toggleDarkMode() {
   document.documentElement.style.setProperty(
     "--chalkboard-color",
     document.body.classList.contains("dark-mode") ? "#497959" : "#31c362"
+  );
+  document.documentElement.style.setProperty(
+    "--theme-color",
+    document.body.classList.contains("dark-mode") ? "#666" : "#e1e1e1"
+  );
+  document.documentElement.style.setProperty(
+    "--text-color",
+    document.body.classList.contains("dark-mode") ? "#eee" : "#111"
   );
   document.documentElement.style.setProperty(
     "--chalkboard-image",
