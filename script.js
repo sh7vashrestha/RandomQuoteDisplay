@@ -51,8 +51,8 @@ function displayQuote(category, index) {
     "-" + categoryQuotes[currentQuoteIndex][1];
 }
 
-function show(query){
-  document.querySelector('.textBox').value = query;
+function show(query) {
+  document.querySelector(".textBox").value = query;
   displayQuote(query, 0);
 }
 
@@ -72,6 +72,11 @@ function showRandomQuote() {
 }
 
 function toggleDarkMode() {
+  if (document.title == "Quotes") {
+    document.title = "Quotes-Dark";
+  } else {
+    document.title = "Quotes";
+  }
   document.body.classList.toggle("dark-mode");
   document.documentElement.style.setProperty(
     "--chalkboard-color",
@@ -79,7 +84,9 @@ function toggleDarkMode() {
   );
   document.documentElement.style.setProperty(
     "--theme-color",
-    document.body.classList.contains("dark-mode") ? "#666                                       " : "#e1e1e1"
+    document.body.classList.contains("dark-mode")
+      ? "#666                                       "
+      : "#e1e1e1"
   );
   document.documentElement.style.setProperty(
     "--text-color",
@@ -117,7 +124,7 @@ function increaseFontSize() {
 
 dropdown.onclick = function () {
   dropdown.classList.toggle("active");
-}
+};
 prevBtn.addEventListener("click", showPreviousQuote);
 nextBtn.addEventListener("click", showNextQuote);
 randomBtn.addEventListener("click", showRandomQuote);
