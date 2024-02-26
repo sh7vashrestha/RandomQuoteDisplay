@@ -1,5 +1,5 @@
 const quotes = {
-  science: [
+  Science: [
     ["Science is organized knowledge.", "Herbert Spencer"],
     [
       "The saddest aspect of life right now is that science gathers knowledge faster than society gathers wisdom.",
@@ -15,7 +15,7 @@ const quotes = {
       "Niels Bohr",
     ],
   ],
-  inspirational: [
+  Inspirational: [
     ["The only way to do great work is to love what you do.", "Steve Jobs"],
     ["Believe you can and you're halfway there.", "Theodore Roosevelt"],
     [
@@ -30,14 +30,14 @@ const quotes = {
   ],
 };
 
-let currentCategory = "science";
+let currentCategory = "Science";
 let currentQuoteIndex = 0;
 
 const quoteDisplay = document.getElementById("quote");
+const dropdown = document.querySelector(".dropdown");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const randomBtn = document.getElementById("randomBtn");
-const categoryDropdown = document.getElementById("category");
 const darkModeSwitch = document.getElementById("theme-toggle");
 const decreaseFontBtn = document.getElementById("decreaseFont");
 const increaseFontBtn = document.getElementById("increaseFont");
@@ -51,9 +51,9 @@ function displayQuote(category, index) {
     "-" + categoryQuotes[currentQuoteIndex][1];
 }
 
-function changeCategory(event) {
-  currentCategory = event.target.value;
-  displayQuote(currentCategory, 0);
+function show(query){
+  document.querySelector('.textBox').value = query;
+  displayQuote(query, 0);
 }
 
 function showNextQuote() {
@@ -79,7 +79,7 @@ function toggleDarkMode() {
   );
   document.documentElement.style.setProperty(
     "--theme-color",
-    document.body.classList.contains("dark-mode") ? "#666" : "#e1e1e1"
+    document.body.classList.contains("dark-mode") ? "#666                                       " : "#e1e1e1"
   );
   document.documentElement.style.setProperty(
     "--text-color",
@@ -115,7 +115,9 @@ function increaseFontSize() {
   quoteDisplay.nextElementSibling.style.fontSize = nextSize + 2 + "px";
 }
 
-categoryDropdown.addEventListener("change", changeCategory);
+dropdown.onclick = function () {
+  dropdown.classList.toggle("active");
+}
 prevBtn.addEventListener("click", showPreviousQuote);
 nextBtn.addEventListener("click", showNextQuote);
 randomBtn.addEventListener("click", showRandomQuote);
